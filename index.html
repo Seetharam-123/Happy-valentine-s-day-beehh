@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Our Love Story 💕</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "Comic Sans MS", cursive;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  text-align: center;
+  color: white;
+}
+
+.container {
+  padding: 20px;
+}
+
+.year {
+  margin: 15px 0;
+  font-size: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  margin: 10px;
+  background: white;
+  color: #ff4b6e;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff4b6e;
+  color: white;
+}
+
+video {
+  width: 320px;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+/* Popup */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  color: #ff4b6e;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 320px;
+  overflow: hidden;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.close {
+  margin-top: 10px;
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+}
+
+/* Heart burst animation */
+.burst-heart {
+  position: absolute;
+  font-size: 20px;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1) translate(0,0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Our Love Story 💖</h1>
+
+<div class="year">2019 - The First Spark ✨</div>
+<div class="year">2020 - Growing Together 🌸</div>
+<div class="year">2021 - Stronger Than Ever 💪</div>
+<div class="year">2022 - Laughs & Memories 😜</div>
+<div class="year">2023 - Finally We Met 💭</div>
+<div class="year">2024 - Kalyaanoooow 💍</div>
+<div class="year">2025 - Living Together 💕</div>
+<div class="year">2026 - Forever Begins With Our Little Kicks ❤️</div>
+
+<video controls autoplay loop>
+  <source src="Love.mp4" type="video/mp4">
+</video>
+
+<h3>Ready to go one more year with me? 💞</h3>
+
+<button onclick="showNo()">No 💍</button>
+<button onclick="showAlways()">ALWAYS 😍</button>
+
+</div>
+
+<!-- Popup -->
+<div id="popup" class="modal">
+  <div class="modal-content" id="popupContent">
+    <div id="popupText"></div>
+    <img id="popupImg" src="">
+    <div class="close" onclick="closePopup()">Close ❌</div>
+  </div>
+</div>
+
+<script>
+
+function burstHearts() {
+  const popup = document.getElementById("popupContent");
+
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement("div");
+    heart.className = "burst-heart";
+    heart.innerHTML = "💖";
+
+    const x = (Math.random() - 0.5) * 200 + "px";
+    const y = (Math.random() - 0.5) * 200 + "px";
+
+    heart.style.setProperty('--x', x);
+    heart.style.setProperty('--y', y);
+
+    heart.style.left = "50%";
+    heart.style.top = "50%";
+
+    popup.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1000);
+  }
+}
+
+function showNo() {
+  document.getElementById("popupText").innerHTML =
+    "😌 Better luck next time... <br> You are going to be with me forever 💕";
+  document.getElementById("popupImg").src = "pic1.jpg";
+  document.getElementById("popup").style.display = "flex";
+  burstHearts();
+}
+
+function showAlways() {
+  document.getElementById("popupText").innerHTML =
+    "✨ Always Love You Beeehh ❤️✨";
+  document.getElementById("popupImg").src = "pic2.jpg";
+  document.getElementById("popup").style.display = "flex";
+  burstHearts();
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
